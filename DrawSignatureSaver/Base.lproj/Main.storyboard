@@ -1,26 +1,83 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawSignatureSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whe-l7-NbM" customClass="DrawSignatureView" customModule="DrawSignatureSaver" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="600" height="400"/>
+                                <color key="backgroundColor" red="1" green="0.96434059019999996" blue="0.89467255909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vf6-ty-pRG">
+                                <rect key="frame" x="10" y="425" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="39j-KM-4jO"/>
+                                    <constraint firstAttribute="height" constant="40" id="7aH-8y-L9q"/>
+                                </constraints>
+                                <state key="normal" title="Clear Sign"/>
+                                <connections>
+                                    <action selector="clearSignature:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB9-8J-0Pp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-8I-mHj">
+                                <rect key="frame" x="480" y="425" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Gge-X6-og6"/>
+                                    <constraint firstAttribute="height" constant="40" id="Wj3-lx-LuX"/>
+                                </constraints>
+                                <state key="normal" title="Save Now"/>
+                                <connections>
+                                    <action selector="saveSignatureImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jxO-xT-9IE"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xPS-XE-Ptp">
+                                <rect key="frame" x="20" y="523.5" width="560" height="133.5"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xPS-XE-Ptp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="3ef-Pg-9cb"/>
+                            <constraint firstItem="whe-l7-NbM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6tu-dK-FTM"/>
+                            <constraint firstItem="whe-l7-NbM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="7Nv-LM-Dh9"/>
+                            <constraint firstAttribute="trailing" secondItem="whe-l7-NbM" secondAttribute="trailing" id="G5s-6e-WOk"/>
+                            <constraint firstItem="xPS-XE-Ptp" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="GLa-bD-EX6"/>
+                            <constraint firstAttribute="trailing" secondItem="xPS-XE-Ptp" secondAttribute="trailing" constant="20" id="IxN-da-dTf"/>
+                            <constraint firstItem="qgg-8I-mHj" firstAttribute="top" secondItem="whe-l7-NbM" secondAttribute="bottom" constant="5" id="YxM-3f-SBK"/>
+                            <constraint firstAttribute="trailing" secondItem="qgg-8I-mHj" secondAttribute="trailing" constant="20" id="eZG-SA-Kwq"/>
+                            <constraint firstItem="Vf6-ty-pRG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="gGf-iX-SFY"/>
+                            <constraint firstItem="whe-l7-NbM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nUJ-l2-N3m"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xPS-XE-Ptp" secondAttribute="bottom" constant="10" id="o9J-O9-XRK"/>
+                            <constraint firstItem="Vf6-ty-pRG" firstAttribute="top" secondItem="whe-l7-NbM" secondAttribute="bottom" constant="5" id="wMf-UU-scw"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="667"/>
+                    <connections>
+                        <outlet property="sampleSignatureView" destination="whe-l7-NbM" id="r5z-F2-JaD"/>
+                        <outlet property="savedSignatureImage" destination="xPS-XE-Ptp" id="SKE-Pm-t7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="116.8" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
